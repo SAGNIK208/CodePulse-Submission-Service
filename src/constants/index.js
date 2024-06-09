@@ -1,15 +1,6 @@
-const mongoose = require("mongoose");
-const {ATLAS_DB_URL,NODE_ENV} = require("./server.config");
+const { DB_NAME, LOG_DB_NAME } = require("./dbConstant");
 
-
-async function connectToDB(){
-    try {
-        if(NODE_ENV == 'dev'){
-            await mongoose.connect(ATLAS_DB_URL);
-        }
-    } catch (error) {
-        console.log("Unable To connect to DB");
-        console.error(error);
-    }
-}
-
+module.exports = {
+  DB_NAME,
+  LOG_DB_NAME,
+};
